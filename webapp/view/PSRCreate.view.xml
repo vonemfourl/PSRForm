@@ -1,0 +1,864 @@
+<mvc:View controllerName="com.adb.zrn_rrs_nso.controller.PSR" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page showHeader="false" showFooter="true" class="sapUiSizeCompact sapUiContentPadding">
+				<footer>
+					<Bar>
+						<contentRight>
+							<Button text="Save" type="Accept" press="onPressSavePSRForm" />
+							<Button text="Cancel" press="onNavBack" />
+						</contentRight>
+					</Bar>
+				</footer>
+				<content>
+					<VBox id="idPSRForm" class="pageBox">
+						<HBox class="titleBox blueBox sapUiSmallMarginBottom">
+							<VBox width="100%">
+								<Text text="PROJECT STATUS REPORT" class="H1"/>
+								<Text text="Type of finance instrument: {path: 'supToForm>/ZrnFinInstrType', formatter: '.formatter.formatFinInstrType'}" class="H4"/>
+							</VBox>
+						</HBox>
+						<HBox width="100%" class="sapUiSmallMarginBottom">
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder blueBox">
+									<Text text="Date of report : {path: 'supToForm>/StartDate', formatter: '.formatter.formatDate'}" class="bold whiteFont"/>
+									<Text text="Mission number : Q-3" class="bold whiteFont"/>
+								</VBox>
+								<HBox width="100%" class="yellowBox">
+									<HBox width="100%" class="boxBorder">
+										<Text text="Project code:" class="bold"/>
+									</HBox>
+									<HBox width="100%" class="boxBorder">
+										<Text text="{supToForm>/ProjectDef}"/>
+									</HBox>
+								</HBox>
+								<HBox width="100%" class="yellowBox">
+									<HBox width="100%" class="boxBorder">
+										<Text text="Sector:" class="bold"/>
+									</HBox>
+									<HBox width="100%" class="boxBorder">
+										<Text text="{supToForm>/SectorName}"/>
+									</HBox>
+								</HBox>
+								<HBox width="100%" height="2.4rem" class="yellowBox">
+									<HBox width="100%" class="boxBorder">
+										<Text text="Type of project:" class="bold"/>
+									</HBox>
+									<HBox width="100%" class="boxBorder">
+										<Text text="{supToForm>/ZrnProjType}"/>
+									</HBox>
+								</HBox>
+							</VBox>
+							<VBox width="100%">
+								<HBox width="100%" height="2.75rem">
+									<HBox width="100%" class="boxBorder blueBox">
+										<Text text="Year:" class="bold whiteFont"/>
+									</HBox>
+									<HBox width="100%" class="boxBorder blueBox">
+										<Text text="Quarterly:" class="bold whiteFont"/>
+									</HBox>
+								</HBox>
+								<HBox width="100%" class="yellowBox">
+									<HBox width="100%" class="boxBorder">
+										<Text text="Project name:" class="bold"/>
+									</HBox>
+									<HBox width="100%" class="boxBorder">
+										<Text text="{supToForm>/ProjNameLong}"/>
+									</HBox>
+								</HBox>
+								<HBox width="100%" class="yellowBox">
+									<HBox width="100%" class="boxBorder">
+										<Text text="Country(ies):" class="bold"/>
+									</HBox>
+									<HBox width="100%" class="boxBorder">
+										<Text text="{supToForm>/CountryName}"/>
+									</HBox>
+								</HBox>
+								<HBox width="100%" class="yellowBox">
+									<HBox width="100%" class="boxBorder">
+										<Text text="Type of LOC (if applicable):" class="bold"/>
+									</HBox>
+									<HBox width="100%" class="boxBorder">
+										<Input/>
+									</HBox>
+								</HBox>
+							</VBox>
+						</HBox>
+						<VBox width="100%" class="sapUiSmallMarginBottom">
+							<!--<HBox width="100%">-->
+								<HBox width="100%">
+									<VBox width="40%" class="boxBorder ashBox">
+										<Text text="Brief overview of the project/beneficiary client:" class="bold"/>
+									</VBox>
+									<VBox width="100%" class="boxBorder">
+										<TextArea rows="3" width="100%"/>
+									</VBox>
+								</HBox>
+								<HBox width="100%">
+									<VBox width="40%" class="boxBorder ashBox">
+										<Text text="Brief description of the Bank’s intervention:" class="bold"/>
+									</VBox>
+									<VBox width="100%" class="boxBorder">
+										<TextArea rows="3" width="100%"/>
+									</VBox>
+								</HBox>
+							<!--</HBox>-->
+							<!--<HBox width="100%">-->
+								<HBox width="100%">
+									<VBox width="40%" class="boxBorder ashBox">
+										<Text text="Project Monitoring Officer:" class="bold"/>
+									</VBox>
+									<VBox width="100%" class="boxBorder">
+										<TextArea rows="3" width="100%"/>
+									</VBox>
+								</HBox>
+								<HBox width="100%">
+									<VBox width="40%" class="boxBorder ashBox">
+										<Text text="Project Monitoring Officer during last supervision:" class="bold"/>
+									</VBox>
+									<VBox width="100%" class="boxBorder">
+										<TextArea rows="3" width="100%"/>
+									</VBox>
+								</HBox>
+							<!--</HBox>-->
+						</VBox>
+						<VBox width="100%" class="sapUiSmallMarginBottom">
+							<HBox width="100%">
+								<VBox width="40%" class="boxBorder ashBox">
+									<Text text="Approval date" class="bold"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" class="boxBorder ashBox">
+									<Text text="Signature date" class="bold"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" class="boxBorder ashBox">
+									<Text text="Last supervision date" class="bold"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" class="boxBorder ashBox">
+									<Text text="First disbursement date" class="bold"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" class="boxBorder ashBox">
+									<Text text="Planned date of XSR" class="bold"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+						</VBox>
+						<VBox width="100%" class="sapUiSmallMarginBottom">
+							<HBox width="100%">
+								<VBox width="40%" height="3rem" class="boxBorder ashBox">
+									<Text text="Outstanding amount" class="bold"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" height="3rem" class="boxBorder ashBox">
+									<Text text="Undisbursed amount" class="bold"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" height="3rem" class="boxBorder ashBox">
+									<Text text="Disbursement projection for the year" class="bold"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" class="boxBorder ashBox">
+									<Text text="Amount disbursed during the year" class="bold"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" class="boxBorder ashBox">
+									<Text text="Repayment Status" class="bold"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+						</VBox>
+						<VBox width="100%" class="sapUiSmallMarginBottom">
+							<HBox width="100%">
+								<VBox width="40%" class="boxBorder ashBox">
+									<Text text="E&amp;S category" class="bold"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="3" width="100%"/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" class="boxBorder ashBox">
+									<Text text="Climate Change category" class="bold"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="3" width="100%"/>
+								</VBox>
+							</HBox>
+						</VBox>
+						<VBox width="100%" class="sapUiSmallMarginBottom">
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Sponsor:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Board representation:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="PINS oversight officer:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Investors, and % ownership :"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="General Secretariat:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="AGM/EGM representation:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Exit route defined at appraisal:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Current exit route:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Date of Last Board Meeting:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Date of Last AGM/EGM Meeting:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+						</VBox>
+						<HBox width="100%" class="sapUiSmallMarginBottom">
+							<VBox width="100%">
+								<VBox width="100%" height="3rem" class="boxBorder ashBox">
+									<Text text="Bank commitment"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" height="3rem" class="boxBorder ashBox">
+									<Text text="Total capitalization"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" height="3rem" class="boxBorder ashBox">
+									<Text text="Amount paid in"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" height="3rem" class="boxBorder ashBox">
+									<Text text="Remaining callable"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+						</HBox>
+						<HBox width="100%" class="sapUiSmallMarginBottom">
+							<VBox width="100%">
+								<VBox width="100%" height="3rem" class="boxBorder ashBox">
+									<Text text="Dividend paid in the current year"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" height="3rem" class="boxBorder ashBox">
+									<Text text="Cumulative dividend paid to date"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+						</HBox>
+						<VBox width="100%" class="sapUiSmallMarginBottom">
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Fund Manager:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="General Partner:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="AC representation:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Date of Last AC Meeting:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Alternate:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Substantive:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Investors, and % ownership:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Maturity date:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="End of Investment period:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+							<HBox width="100%">
+								<VBox width="40%" justifyContent="Center" class="boxBorder ashBox">
+									<Text text="Date of first investment:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</HBox>
+						</VBox>
+						<HBox width="100%" class="sapUiSmallMarginBottom">
+							<VBox width="100%">
+								<VBox width="100%" height="3rem" class="boxBorder ashBox">
+									<Text text="Bank commitment"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" height="3rem" class="boxBorder ashBox">
+									<Text text="Total capitalization"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" height="3rem" class="boxBorder ashBox">
+									<Text text="Amount paid in"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" height="3rem" class="boxBorder ashBox">
+									<Text text="Remaining callable"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+						</HBox>
+						<HBox width="100%" class="sapUiSmallMarginBottom">
+							<VBox width="100%">
+								<VBox width="100%" height="3rem" class="boxBorder ashBox">
+									<Text text="Distributions Received"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" height="3rem" class="boxBorder ashBox">
+									<Text text="DPI ratio"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+						</HBox>
+						<VBox width="100%" class="sapUiSmallMarginBottom">
+							<VBox alignItems="Center" justifyContent="Center" width="100%" class="boxBorder ashBox">
+								<Text text="Reporting Compliance" class="bold"/>
+							</VBox>
+							<VBox width="100%" class="boxBorder">
+								<TextArea rows="5" width="100%"
+									placeholder="Indicate if the reporting is consistent with the Agreement signed by the Sponsor in terms of content and periodicity; in case the compliance is only partial, provide information on the areas concerned, the reasons for non-compliance, their importance and the measures undertaken to address identified issues."/>
+							</VBox>
+						</VBox>
+						<VBox width="100%" height="2.5rem" alignItems="Center" justifyContent="Center" class="sapUiSmallMarginTopBottom blueBox">
+							<Text text="ANALYSIS" class="bold whiteFont"/>
+						</VBox>
+						<VBox width="100%" height="2.25rem" alignItems="Start" justifyContent="Center" class="sapUiContentPadding blueBox">
+							<Text text="Implementation Progress: [4 – Highly Satisfactory; 3 – Satisfactory; 2 – Unsatisfactory; 1 – Highly Unsatisfactory]"
+								class="bold whiteFont"/>
+						</VBox>
+						<HBox width="100%">
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Current PSR Rating:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Rating from previous PSR:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Rating from most recent ASR:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Assessment"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"
+										placeholder="Describe the execution progress made, using as reference, the logical framework attached to the PAR. Indicate whether it is in line with the schedule and conditions or not List the problems that need special attention and that may impact its implementation delay it or increase its costs."/>
+								</VBox>
+							</VBox>
+						</HBox>
+						<VBox width="100%" height="2.25rem" alignItems="Start" justifyContent="Center" class="sapUiContentPadding blueBox">
+							<Text text="Commercial Viability:" class="bold whiteFont"/>
+						</VBox>
+						<HBox width="100%">
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Current Credit Risk rating:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Credit Risk rating at previous supervision:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Credit Risk rating at approval:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Assessment"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"
+										placeholder="Using the EF Model part of the PAR, indicate whether there are factors that are affecting the current implementation and/or that may have an impact on its expected financial and socioeconomic performance"/>
+								</VBox>
+							</VBox>
+						</HBox>
+						<VBox width="100%" height="2.25rem" alignItems="Start" justifyContent="Center" class="sapUiContentPadding blueBox">
+							<Text text="Development objectives : [4 – Highly Satisfactory; 3 – Satisfactory; 2 – Unsatisfactory; 1 – Highly Unsatisfactory]"
+								class="bold whiteFont"/>
+						</VBox>
+						<HBox width="100%" class="sapUiSmallMarginBottom">
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Current rating (from most recent ASR):"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Previous rating (from previous ASR):"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Justification"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"
+										placeholder="(A rating of 2 or 1, along with proposed remedies, must be discussed in the Issues, Risks and Actions for Management section)"/>
+								</VBox>
+							</VBox>
+						</HBox>
+						<VBox width="100%" height="2.25rem" alignItems="Start" justifyContent="Center" class="sapUiContentPadding blueBox">
+							<Text text="Security:" class="bold whiteFont"/>
+						</VBox>
+						<HBox width="100%" class="sapUiSmallMarginBottom">
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Type:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Value date:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Period of validity"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Conditions to exercise security:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Comment:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<Input/>
+								</VBox>
+							</VBox>
+						</HBox>
+						<VBox width="100%">
+							<VBox alignItems="Start" justifyContent="Center" width="100%" class="sapUiContentPadding boxBorder blueBox">
+								<Text text="Valuation:" class="bold whiteFont"/>
+							</VBox>
+							<VBox width="100%" class="boxBorder">
+								<TextArea rows="5" width="100%"
+									placeholder="(Review of the book value to ensure its representativeness of the fair market value and report any early warning signs of potential impairment.)"/>
+							</VBox>
+						</VBox>
+						<HBox width="100%" class="sapUiSmallMarginBottom">
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder ashBox">
+									<Text text="Assessment of Valuation Methodology:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder ashBox">
+									<Text text="Assessment of Impairment Indicators:"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder ashBox">
+									<Text text="Assessment of Any Investment Exit"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+						</HBox>
+						<VBox alignItems="Start" justifyContent="Center" width="100%" class="sapUiContentPadding boxBorder blueBox">
+							<Text text="Outcome reporting:" class="bold whiteFont"/>
+						</VBox>
+						<Table inset="false" items="{ path: 'output1>/ProductCollection'}" class="outputTable">
+							<columns>
+								<Column>
+									<Text text="Outcome indicators"/>
+								</Column>
+								<Column>
+									<Text text="Unit of measure"/>
+								</Column>
+								<Column>
+									<Text text="Baseline value(a)"/>
+								</Column>
+								<Column>
+									<Text text="Most recent value(b)"/>
+								</Column>
+								<Column>
+									<Text text="End target (expected value at project completion)(c)"/>
+								</Column>
+								<Column>
+									<Text text="Progress towards end target (% realized)(b-a/c-a)"/>
+								</Column>
+								<Column>
+									<Text text="Assessment"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier title="{output1>Name}"/>
+										<Input/>
+										<Input/>
+										<Input/>
+										<Input/>
+										<Input/>
+										<Input/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+						<VBox width="100%" height="2.25rem" alignItems="Start" justifyContent="Center" class="sapUiContentPadding blueBox">
+							<Text text="Outcome rating [ 4 – Highly Satisfactory; 3 – Satisfactory; 2 – Unsatisfactory; 1 – Highly Unsatisfactory ]"
+								class="bold whiteFont"/>
+						</VBox>
+						<HBox width="100%" class="sapUiSmallMarginBottom">
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Current rating (from most recent ASR):"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Previous rating (from previous ASR):"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Justification"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"
+										placeholder="(A rating of 2 or 1, along with proposed remedies, must be discussed in the Issues, Risks and Actions for Management section)"/>
+								</VBox>
+							</VBox>
+						</HBox>
+						<VBox alignItems="Start" justifyContent="Center" width="100%" class="sapUiContentPadding boxBorder blueBox">
+							<Text text="Output reporting:" class="bold whiteFont"/>
+						</VBox>
+						<Table inset="false" items="{ path: 'output1>/ProductCollection'}" class="outputTable">
+							<columns>
+								<Column>
+									<Text text="Outcome indicators"/>
+								</Column>
+								<Column>
+									<Text text="Unit of measure"/>
+								</Column>
+								<Column>
+									<Text text="Most Recent Value"/>
+								</Column>
+								<Column>
+									<Text text="Annual Target (expected cumulative value at end of reporting year)"/>
+								</Column>
+								<Column>
+									<Text text="End Target (expected cumulative value at completion)"/>
+								</Column>
+								<Column>
+									<Text text="Progress towards annual target (% realized)"/>
+								</Column>
+								<Column>
+									<Text text="Progress towards end of project target (% realized)"/>
+								</Column>
+								<Column>
+									<Text text="Assessment"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier title="{output1>Name}"/>
+										<Input/>
+										<Input/>
+										<Input/>
+										<Input/>
+										<Input/>
+										<Input/>
+										<Input/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+						<VBox width="100%" height="2.25rem" alignItems="Start" justifyContent="Center" class="sapUiContentPadding blueBox">
+							<Text text="Output rating [ 4 – Highly Satisfactory; 3 – Satisfactory; 2 – Unsatisfactory; 1 – Highly Unsatisfactory ]"
+								class="bold whiteFont"/>
+						</VBox>
+						<HBox width="100%" class="sapUiSmallMarginBottom">
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Current rating (from most recent ASR):"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Previous rating (from previous ASR):"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"/>
+								</VBox>
+							</VBox>
+							<VBox width="100%">
+								<VBox width="100%" class="boxBorder yellowBox">
+									<Text text="Justification"/>
+								</VBox>
+								<VBox width="100%" class="boxBorder">
+									<TextArea rows="5" width="100%"
+										placeholder="(A rating of 2 or 1, along with proposed remedies, must be discussed in the Issues, Risks and Actions for Management section)"/>
+								</VBox>
+							</VBox>
+						</HBox>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

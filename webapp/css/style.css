@@ -1,0 +1,61 @@
+/* Enter your custom styles here */
+
+.titleBox {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+}
+
+.blueBox {
+	background-image: url(../mime/BlueBar.png);
+}
+
+.ashBox {
+	background-image: url(../mime/AshBar.png);
+}
+
+.yellowBox {
+	background-image: url(../mime/YellowBar.png);
+}
+
+.logo {
+    width: 10rem;
+    position: absolute;
+    right: 0.25rem;
+    top: 3px;
+}
+
+.boxBorder {
+    border: 1px solid #9e9e9e;
+    padding: 3px;
+    /*border-top: none;*/
+}
+
+.boxBorder .sapMFlexItem {
+	width: 100%;
+}
+
+.H1 {
+    font-size: 26px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-align: center !important;
+}
+
+.H4 {
+    color: #fff;
+    font-size: medium;
+    padding: 5px 0px;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.whiteFont {
+	color: #fff !important;
+}
+
+.sapUiSizeCompact .sapMInputBase.sapMTextArea {
+     margin: 0; 
+}
